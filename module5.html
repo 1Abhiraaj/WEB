@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>HTML Form</title>
+  <style>
+    body{
+      background-color: rgb(153, 107, 197)
+    }
+    h1{
+      text-align: center;
+      color:aqua;
+      margin: 25px;
+      padding: 10px;
+
+    }
+    p{
+      margin: 20px;
+      color: rgb(13, 225, 186);
+      padding: 10px;
+
+    }
+  </style>
+</head>
+<body>
+  <h1>A Form</h1>
+
+  <!-- Name input -->
+  <p>
+    <label for="nameInput">Enter your name:</label>
+    <input type="text" id="nameInput" name="name">
+  </p>
+
+  <!-- Life story input -->
+  <p>
+    <label for="storyInput">Your life story:</label>
+    <textarea id="storyInput" name="story"></textarea>
+  </p>
+
+  <!-- Age radio buttons -->
+  <p>
+    <label>Age:</label>
+    <label><input type="radio" name="age" value="0-20"> 0-20 yrs</label>
+    <label><input type="radio" name="age" value="21-40"> 21-40 yrs</label>
+    <label><input type="radio" name="age" value="41-60"> 41-60 yrs</label>
+    <label><input type="radio" name="age" value="61+"> 61+ yrs</label>
+  </p>
+
+  <!-- Favorite colors checkboxes -->
+  <p>
+    <label for="colorCheckboxes">Favorite Colors:</label>
+    <input type="checkbox" id="color-green" name="color-green" class="color-checkbox">
+    <label for="color-green">Green</label>
+    <input type="checkbox" id="color-blue" name="color-blue" class="color-checkbox">
+    <label for="color-blue">Blue</label>
+    <input type="checkbox" id="color-red" name="color-red" class="color-checkbox">
+    <label for="color-red">Red</label>
+    <input type="checkbox" id="color-yellow" name="color-yellow" class="color-checkbox">
+    <label for="color-yellow">Yellow</label>
+  </p>
+
+  <!-- Occupation dropdown menu -->
+  <p>
+    <label for="occupationDropdown">Occupation:</label>
+    <select id="occupationDropdown" name="occupation">
+      <option value="student">Student</option>
+      <option value="employed">Employed</option>
+      <option value="unemployed">Unemployed</option>
+      <option value="retired">Retired</option>
+    </select>
+  </p>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Blinking Cursor on Label Click for Name Input
+      const nameLabel = document.querySelector('label[for="nameInput"]');
+      const nameInput = document.getElementById('nameInput');
+      nameLabel.addEventListener('click', () => {
+        nameInput.focus();
+      });
+
+      // Checkbox Label Click Handling
+      const checkboxes = document.querySelectorAll('.color-checkbox');
+      checkboxes.forEach(checkbox => {
+        const label = document.querySelector(`label[for="${checkbox.id}"]`);
+        label.addEventListener('click', () => {
+          checkbox.checked = !checkbox.checked;
+        });
+      });
+
+      // Dropdown Menu Label Click Handling
+      const occupationLabel = document.querySelector('label[for="occupationDropdown"]');
+      const occupationDropdown = document.getElementById('occupationDropdown');
+      occupationLabel.addEventListener('click', () => {
+        occupationDropdown.focus();
+      });
+    });
+  </script>
+</body>
+</html>
+

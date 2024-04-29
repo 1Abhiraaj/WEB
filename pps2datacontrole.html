@@ -1,0 +1,102 @@
+<!-- Write a JavaScript program to display the current day and time in the following format.  
+Sample Output: Today is: Tuesday.
+The current time is : 10 PM: 30 : 38 -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Current Day and Time</title>
+</head>
+<body>
+
+<p id="day"></p>
+<p id="time"></p>
+
+<script>
+// Function to get the current day in text format
+function getCurrentDay() {
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const currentDate = new Date();
+    const dayIndex = currentDate.getDay();
+    return days[dayIndex];
+}
+
+// Function to format the current time
+function formatCurrentTime() {
+    const currentDate = new Date();
+    let hours = currentDate.getHours();
+    let minutes = currentDate.getMinutes();
+    let seconds = currentDate.getSeconds();
+    let period = hours >= 12 ? 'PM' : 'AM';
+
+    hours = hours % 12 || 12; // Convert to 12-hour format
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    return `${hours} ${period}: ${minutes} : ${seconds}`;
+}
+
+// Display the current day and time
+document.getElementById("day").innerText = `Today is: ${getCurrentDay()}.`;
+document.getElementById("time").innerText = `The current time is: ${formatCurrentTime()}`;
+
+// Update the time every second
+setInterval(function() {
+    document.getElementById("time").innerText = `The current time is: ${formatCurrentTime()}`;
+}, 1000);
+</script>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Current Day and Time</title>
+</head>
+<body>
+
+<h2>Current Day and Time</h2>
+<p id="currentDateTime"></p>
+
+<script>
+function getCurrentDateTime() {
+  // Get current date and time
+  let currentDate = new Date();
+
+  // Get day of the week
+  let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  let dayOfWeek = days[currentDate.getDay()];
+
+  // Get current time
+  let hours = currentDate.getHours();
+  let minutes = currentDate.getMinutes();
+  let seconds = currentDate.getSeconds();
+  let amOrPm = (hours >= 12) ? 'PM' : 'AM';
+
+  // Convert hours to 12-hour format
+  hours = (hours % 12 === 0) ? 12 : hours % 12;
+
+  // Add leading zeros to minutes and seconds if they are less than 10
+  minutes = (minutes < 10) ? '0' + minutes : minutes;
+  seconds = (seconds < 10) ? '0' + seconds : seconds;
+
+  // Construct the output string
+  let currentTime = hours + ' ' + amOrPm + ': ' + minutes + ' : ' + seconds;
+
+  // Display the current day and time
+  document.getElementById('currentDateTime').innerText = "Today is: " + dayOfWeek + ".\nThe current time is: " + currentTime;
+}
+
+// Update the current day and time when the page loads
+window.onload = getCurrentDateTime;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!-- Write a JavaScript program to rotate the string 'resourceBasedApproach' in the right direction. 
+This is done by periodically removing one letter from the string end and attaching it to the front.   -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>String Rotation</title>
+</head>
+<body>
+
+<p id="rotatedString"></p>
+
+<script>
+// Function to rotate a string in the right direction
+function rotateString(str) {
+    return str.charAt(str.length - 1) + str.substring(0, str.length - 1);
+}
+
+// Initial string to rotate
+let originalString = 'resourceBasedApproach';
+let rotatedString = originalString;
+
+// Display the initial string
+document.getElementById("rotatedString").innerText = rotatedString;
+
+// Rotate the string every second
+setInterval(function() {
+    rotatedString = rotateString(rotatedString);
+    document.getElementById("rotatedString").innerText = rotatedString;
+}, 1000);
+</script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>String Rotation</title>
+</head>
+<body>
+
+<h2>String Rotation</h2>
+<p id="rotatedString">Initial String: resourceBasedApproach</p>
+
+<script>
+function rotateString() {
+  // Get the initial string
+  let initialString = 'resourceBasedApproach';
+  let rotatedString = initialString;
+
+  // Rotate the string
+  setInterval(function() {
+    // Remove the last character and add it to the front
+    rotatedString = rotatedString.charAt(rotatedString.length - 1) + rotatedString.substring(0, rotatedString.length - 1);
+    // Update the displayed string
+    document.getElementById('rotatedString').innerText = "Rotated String: " + rotatedString;
+  }, 1000); // Rotate every 1000 milliseconds (1 second)
+}
+
+// Start rotating the string when the page loads
+window.onload = rotateString;
+</script>
+
+</body>
+</html>

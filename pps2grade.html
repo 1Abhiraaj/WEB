@@ -1,0 +1,124 @@
+<!-- Using forms, Write a JavaScript program to evaluate a student's total marks across various examinations and determine their grade. 
+The grading criteria are as follows:If the total marks fall within the range of 89 to 100 (inclusive), the student receives an A+ grade.
+If the examination is labeled as "Final-exam," the student will receive an A+ grade only if their total marks are 90 or greater. 
+Assume that final examination means we pass 'true' as second parameter otherwise blank.
+If the student achieves an A+ grade, the program should return 'true'; otherwise, it should return 'false' -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Grade Evaluation</title>
+</head>
+<body>
+
+<form id="gradeForm">
+    <label for="totalMarks">Enter Total Marks:</label>
+    <input type="number" id="totalMarks" required><br><br>
+
+    <label for="isFinalExam">Is it a Final Exam?</label>
+    <input type="checkbox" id="isFinalExam"><br><br>
+
+    <button type="submit">Evaluate Grade</button>
+</form>
+
+<script>
+// Function to calculate the grade of a student based on their total marks
+function calculateGrade(totalMarks, isFinalExam) {
+    if (totalMarks >= 89 && totalMarks <= 100) {
+        if (isFinalExam) {
+            if (totalMarks >= 90) {
+                return true;
+            }
+        } else {
+            return true;
+        }
+    }
+    return false;
+}
+
+// Get the form element
+const form = document.getElementById("gradeForm");
+
+// Add an event listener to the form
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Get the values from the form
+    const totalMarks = parseInt(document.getElementById("totalMarks").value);
+    const isFinalExam = document.getElementById("isFinalExam").checked;
+
+    // Call the calculateGrade function and display the result
+    if (calculateGrade(totalMarks, isFinalExam)) {
+        alert("A+ Grade");
+    } else {
+        alert("Not A+ Grade");
+    }
+});
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Grade Evaluation</title>
+</head>
+<body>
+
+<h2>Student Grade Evaluation</h2>
+
+<form id="gradeForm">
+  <label for="totalMarks">Total Marks:</label>
+  <input type="number" id="totalMarks" name="totalMarks" required>
+  <br>
+  <label for="examType">Examination Type:</label>
+  <select id="examType" name="examType">
+    <option value="Regular">Regular</option>
+    <option value="Final-exam">Final Exam</option>
+  </select>
+  <br>
+  <button type="submit">Evaluate Grade</button>
+</form>
+
+<script>
+document.getElementById("gradeForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  // Retrieve total marks and exam type from the form
+  const totalMarks = parseInt(document.getElementById("totalMarks").value);
+  const examType = document.getElementById("examType").value;
+
+  // Evaluate grade based on the criteria
+  const isAPlus = evaluateGrade(totalMarks, examType);
+
+  // Display the result
+  if (isAPlus) {
+    alert("Congratulations! You received an A+ grade.");
+  } else {
+    alert("Sorry, you did not receive an A+ grade.");
+  }
+});
+
+function evaluateGrade(totalMarks, examType) {
+  // Check if the exam is Final-exam and the total marks are 90 or greater
+  if (examType === "Final-exam" && totalMarks >= 90) {
+    return true;
+  }
+  // Check if the total marks fall within the range of 89 to 100 (inclusive)
+  else if (totalMarks >= 89 && totalMarks <= 100) {
+    return true;
+  }
+  // If none of the above conditions are met, return false
+  else {
+    return false;
+  }
+}
+</script>
+
+</body>
+</html>

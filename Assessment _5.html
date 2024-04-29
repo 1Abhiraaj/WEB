@@ -1,0 +1,130 @@
+<!-- Write a JavaScript function to get the values of First and Last names of the following form.
+ <!DOCTYPE html>
+ <html><head>
+ <meta charset=utf-8 />
+ <title>Return first and last name from a form - w3resource</title>
+ </head><body>
+ <form id="form1" onsubmit="getFormvalue()">
+ First name: <input type="text" name="fname" value="David"><br>
+ Last name: <input type="text" name="lname" value="Beckham"><br>
+ <input type="submit" value="Submit">
+ </form>
+ </body>
+ </html>
+ Write a JavaScript program to highlight the bold words of the following paragraph, on mouse
+over a
+ certain link.
+ Develop an email account registration system that takes username, password, confirm password,
+ dob, address, secret question, and answer etc and create a new account for you if the username
+ does not exist. Do validation for dob, confirm password etc -->
+ <!DOCTYPE html>
+ <html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESPONSIVE EMAIL FORM</title>
+    <STYLE>
+    body{
+    margin: 10px;
+    padding: 10px;
+    background-color: #91c6cf;
+    }
+    .br{
+    margin: 10px;
+    padding: 10px;
+    }
+    </STYLE>
+    </head>
+    <body>
+        <form id="form1" onsubmit="getFormvalue()">
+        First name: <input class="br" type="text" name="fname" value="David"><br>
+        Last name: <input class="br" type="text" name="lname" value="Beckham"><br>
+        <input class="br" type="submit" value="Submit">
+        </form>
+        
+        <DIV class="br" >
+        <p id="paragraph">Develop an <b>email account registration system</b> that takes
+        <b>username</b>, <b>password</b>, <b>confirm password</b>,
+        <b>dob</b>, <b>address</b>, <b>secret question</b>, and <b>answer</b> etc and create a
+        new account for you if the <b>username</b> does not exist. Do validation for
+        <b>dob</b>, <b>confirm password</b> etc.
+        </p>
+        </DIV>
+        <a href="#" id="highlightLink">Hover here</a>
+
+        <h2 class="br" >Registration Form</h2>
+        <form id="registrationForm" onsubmit="validateForm(event)">
+            <label>
+            Username:
+            <input class="br" type="text" id="username" required>
+            </label><br><br>
+            <label>
+            Password:
+            <input class="br" type="password" id="password" required>
+            </label><br><br>
+            <label>
+            Confirm Password:
+            <input class="br" type="password" id="confirmPassword" required>
+            </label><br><br>
+            <label>
+            Date of Birth:
+            <input class="br" type="date" id="dob" required>
+            </label><br><br>
+            <label>
+            Address:
+            <textarea id="address" rows="4" required></textarea>
+            </label><br><br>
+            <label>
+            Secret Question:
+            <input class="br" type="text" id="secretQuestion" required>
+            </label><br><br>
+            <label>
+            Secret Answer:
+            <input tclass="br" ype="text" id="secretAnswer" required>
+            </label><br><br>
+            <input class="br" type="submit" value="Register">
+        </form>
+        <script>
+        //Return first and last name from a form - w3resource
+        function getFormvalue() {
+        var firstName =
+        document.getElementById("form1").elements.namedItem("fname").value;
+        var lastName =
+        document.getElementById("form1").elements.namedItem("lname").value;
+        alert("First name: " + firstName + "\nLast name: " + lastName);
+        }
+        brclass ="br"
+        //Highlight Bold Words
+        document.getElementById("highlightLink").addEventListener("mouseover", function() {
+        var boldWords = document.querySelectorAll("#paragraph b");
+        boldWords.forEach(function(word) {
+        word.style.color = "red";
+        });
+        });
+        document.getElementById("highlightLink").addEventListener("mouseout", function() {
+        var boldWords = document.querySelectorAll("#paragraph b");
+        boldWords.forEach(function(word) {
+        word.style.color = "";
+        });
+        });
+        // EMAIL PART
+        function validateForm(event) {
+        event.preventDefault();
+        // Fetch input values
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+        var dob = document.getElementById("dob").value;
+        var address = document.getElementById("address").value;
+        var secretQuestion = document.getElementById("secretQuestion").value;
+        var secretAnswer = document.getElementById("secretAnswer").value;
+        // Validate password
+        if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return;
+        }
+        alert("Registration successful!");
+        }
+        </script>
+    </body>
+ </html>

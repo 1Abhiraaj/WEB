@@ -1,0 +1,45 @@
+<!-- Using Java script, Write a pattern that matches e-mail addresses.
+The personal information part contains the following ASCII characters.
+Uppercase (A-Z) and lowercase (a-z) English letters.
+Digits (0-9).
+Characters ! # $ % & ' * + - / = ? ^ _ ` { | } ~
+Character . ( period, dot or fullstop) provided that it is not the first or last character and it will not come one after the other. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Address Validation</title>
+</head>
+<body>
+
+<h2>Email Address Validation</h2>
+
+<form id="emailForm">
+  <label for="email">Email Address:</label>
+  <input type="text" id="email" name="email">
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+document.getElementById('emailForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  
+  const emailPattern = /^[a-zA-Z0-9!#$%&'*+\-/=?^_`{|}~]+(\.[a-zA-Z0-9!#$%&'*+\-/=?^_`{|}~]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,})$/;
+  
+  const emailInput = document.getElementById('email');
+  const email = emailInput.value.trim();
+  
+  if (emailPattern.test(email)) {
+    alert('Valid email address: ' + email);
+  } else {
+    alert('Invalid email address. Please enter a valid email.');
+  }
+});
+</script>
+
+</body>
+</html>
+
+
